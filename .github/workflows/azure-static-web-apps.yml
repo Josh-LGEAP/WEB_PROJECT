@@ -32,6 +32,7 @@ jobs:
           api_location: "api"          # Bring Your Own Functions - deployed by the job below
           output_location: ""       # app/ is already the build output (no bundler)
           skip_api_build: true
+          skip_app_build: true
 
   deploy_api:
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
