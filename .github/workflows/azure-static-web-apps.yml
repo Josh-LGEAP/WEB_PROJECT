@@ -29,9 +29,10 @@ jobs:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           action: upload
           app_location: "app"
-          api_location: ""          # Bring Your Own Functions - deployed by the job below
+          api_location: "api"          # Bring Your Own Functions - deployed by the job below
           output_location: ""       # app/ is already the build output (no bundler)
           skip_api_build: true
+          skip_app_build: true
 
   deploy_api:
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
