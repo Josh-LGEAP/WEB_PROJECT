@@ -1,0 +1,20 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "FUNCTIONS_WORKER_RUNTIME": "node",
+    "AZURE_TENANT_ID": "<tenant guid>",
+    "AZURE_CLIENT_ID": "<sp app id>",
+    "AZURE_CLIENT_SECRET": "@Microsoft.KeyVault(SecretUri=...)",
+    "REGISTRY_SOURCE": "sharepoint",
+    "SP_SITE_ID": "lgeteams.sharepoint.com,539f3f3f-7258-44a6-9dae-1442529f1997,a28881ff-8e20-4eb8-bdc4-34b9458868ee",
+    "SP_LIST_ID": "0ef2e979-be17-4cb5-b9b3-c1c58201ff68",
+    "GRAPH_DRIVE_ID": "<drive id, only if REGISTRY_SOURCE=excel>",
+    "GRAPH_ITEM_ID": "<workbook item id, only if REGISTRY_SOURCE=excel>",
+    "REGISTRY_TABLE_NAME": "DashboardRegistry",
+    "STATE_TABLE": "refreshstate",
+    "REFRESH_POLL_CRON": "0 */15 * * * *",
+    "PBI_SCOPE": "https://analysis.windows.net/powerbi/api/.default",
+    "GRAPH_SCOPE": "https://graph.microsoft.com/.default"
+  }
+}

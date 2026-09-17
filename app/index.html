@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Business Intelligence Portal</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="masthead">
+    <div class="brand">
+      <img src="assets/logo.png" alt="Company logo" class="logo"
+           onerror="this.onerror=null;this.src='assets/tiles/logo.png'" />
+      <div>
+        <h1>Business Intelligence Portal</h1>
+        <p class="subtitle">LGEAP - Business Operations Planning</p>
+      </div>
+    </div>
+    <div class="user">
+      <span id="user-name"></span>
+      <a class="signout" href="/.auth/logout">Sign out</a>
+    </div>
+  </header>
+
+  <nav class="topnav">
+    <button id="nav-dashboard">Dashboard</button>
+    <button id="nav-ai">AI Insights</button>
+    <button id="nav-analytics">Analytics Hub</button>
+  </nav>
+  <main>
+
+    <section class="statusbar" id="statusbar" hidden>
+      <span class="pill pill-fresh"><b id="count-fresh">0</b> refreshed</span>
+      <span class="pill pill-aging"><b id="count-aging">0</b> ageing</span>
+      <span class="pill pill-stale"><b id="count-stale">0</b> stale</span>
+      <span class="pill pill-failed"><b id="count-failed">0</b> failed</span>
+      <span class="asof" id="asof"></span>
+    </section>
+
+    <div class="toolbar">
+      <input id="search" type="search" placeholder="Filter dashboards..." aria-label="Filter dashboards" />
+    </div>
+
+    <div id="content" class="content">
+      <p class="loading">Loading dashboards...</p>
+    </div>
+    <div id="ai-page" style="display:none">
+    </div>
+    <div id="analytics-page" style="display:none">
+    </div>
+  </main>
+
+  <footer>
+    <p>Built by Josh Cho | Business Operations Planning</p>
+  </footer>
+  <script src="https://cdn.npm/chart.js@4.4.7/dist/chart.umd.min.jsscript>
+  <script src="analytics.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

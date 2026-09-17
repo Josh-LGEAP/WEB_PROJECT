@@ -1,0 +1,13 @@
+{
+  "c2327efa-0513-41e9-8aa0-bc23ca3fcbe8": {
+    "salesTrend": {
+      "dax": "EVALUATE TOPN(100, REPLACE_WITH_VALID_DAX)"
+    },
+    "salesByState": {
+      "dax": "EVALUATE TOPN(20, REPLACE_WITH_VALID_DAX)"
+    },
+    "topStores": {
+      "dax": "EVALUATE TOPN(10, REPLACE_WITH_VALID_DAX)"
+    }
+  }
+}

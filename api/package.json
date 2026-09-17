@@ -1,0 +1,17 @@
+{
+  "name": "dashboard-portal-api",
+  "version": "1.0.0",
+  "private": true,
+  "main": "src/functions/*.js",
+  "scripts": {
+    "start": "func start",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "@azure/functions": "^4.5.0",
+    "@azure/identity": "^4.4.1",
+    "@azure/data-tables": "^13.2.2",
+    "@azure/storage-blob": "^12.26.0"
+  },
+  "engines": { "node": ">=20" }
+}

@@ -1,0 +1,25 @@
+<!-- Add Chart.js once, immediately before your existing app.js script. -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+<link rel="stylesheet" href="analytics.css">
+
+<!-- Use this as the existing Quick Analytics page/view content. -->
+<section id="analytics-view" class="analytics-wrap" hidden>
+  <div class="analytics-head">
+    <div><h2>AU Store Sell-Out</h2><p id="analytics-asof" class="analytics-sub">Loading Azure Blob data...</p></div>
+    <button class="analytics-refresh" type="button" onclick="loadAnalytics(true)">Refresh data</button>
+  </div>
+  <div id="analytics-error" class="analytics-error" hidden></div>
+  <div class="kpi-grid">
+    <article class="kpi-card"><div class="kpi-label">Sell-Out Amount</div><div id="kpi-sellout-amt" class="kpi-value">-</div></article>
+    <article class="kpi-card"><div class="kpi-label">Sell-Out Qty</div><div id="kpi-sellout-qty" class="kpi-value">-</div></article>
+    <article class="kpi-card"><div class="kpi-label">Display Qty</div><div id="kpi-display-qty" class="kpi-value">-</div></article>
+    <article class="kpi-card"><div class="kpi-label">Sellable Qty</div><div id="kpi-sellable-qty" class="kpi-value">-</div></article>
+  </div>
+  <div class="chart-grid">
+    <article class="chart-card"><h3>Weekly Sell-Out Amount</h3><div class="chart-box"><canvas id="chart-week"></canvas></div></article>
+    <article class="chart-card"><h3>Top Channels by Amount</h3><div class="chart-box"><canvas id="chart-channel"></canvas></div></article>
+    <article class="chart-card"><h3>Sell-Out Amount by State</h3><div class="chart-box"><canvas id="chart-state"></canvas></div></article>
+    <article class="chart-card"><h3>Top Models by Quantity</h3><div class="chart-box"><canvas id="chart-model"></canvas></div></article>
+  </div>
+</section>
+<script src="analytics.js"></script>

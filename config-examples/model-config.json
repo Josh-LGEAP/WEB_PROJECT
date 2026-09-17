@@ -1,0 +1,16 @@
+{
+  "c2327efa-0513-41e9-8aa0-bc23ca3fcbe8": {
+    "description": "AU Store Sell-Out",
+    "tables": [
+      {
+        "name": "REPLACE_WITH_REAL_TABLE",
+        "columns": [
+          "REPLACE_WITH_REAL_COLUMN"
+        ],
+        "measures": [
+          "REPLACE_WITH_REAL_MEASURE"
+        ]
+      }
+    ]
+  }
+}
