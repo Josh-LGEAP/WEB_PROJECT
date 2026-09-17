@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # BOP Power BI Dashboard Portal
 
 An internal landing page for the team's Power BI dashboards: clickable tiles that
@@ -89,3 +90,6 @@ The page never invents a timestamp: a dataset with no refresh history renders as
 - Natural-language Q&A is deliberately out of scope for v1. Use the Power BI Q&A
   visual first; a custom NL-to-DAX layer needs the `executeQueries` tenant setting
   and must run on a delegated token so row-level security is honoured.
+=======
+# WEB_PROJECT
+>>>>>>> 6eef4a05eb78d3599aa6f959df5ab7daa18033f8
