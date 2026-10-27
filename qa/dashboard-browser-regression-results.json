@@ -12,10 +12,14 @@
     "aiComingSoonOnly": true,
     "analyticsComingSoonOnly": true,
     "legacyAiAnalyticsApiCallsAfterClicks": 0,
-    "tutorialUsesSecuredSameOriginApi": true,
+    "tutorialUsesDirectPublicBlob": true,
     "tutorialOpensInSafeNewTab": true,
+    "reportHtmlUsesDirectPublicBlob": true,
+    "reportHtmlOpensInSafeNewTab": true,
     "rawExcelUsesDownloadBehaviourWhenRegistered": true,
-    "reportHtmlDisabledBecauseRegistryNull": true,
+    "rawExcelDisabledBecauseRegistryNull": true,
+    "operationalReportMetadata": true,
+    "statusBadgeHidden": true,
     "browserPageErrors": 0
   },
   "baselineDashboard": {
@@ -126,6 +130,7 @@
     "Inventory Dashboard",
     "LTI Dashboard"
   ],
-  "tutorialHrefInLocalTest": "http://127.0.0.1:8128/api/report-resource?reportId=kam-bsr-traffic-light&resource=tutorialHtml",
+  "tutorialHrefInLocalTest": "https://lgeapbop.blob.core.windows.net/bi-portal/kam/bsr-traffic/BSR_TrafficLight_Report_Video_Tutorial.html",
+  "reportHrefInLocalTest": "https://lgeapbop.blob.core.windows.net/bi-portal/kam/bsr-traffic/BSR%20Traffic%20Light%20Report.html",
   "apiRequestsAfterAiAnalyticsClicks": []
 }

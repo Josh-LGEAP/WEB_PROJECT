@@ -122,10 +122,13 @@
     const title = document.createElement('h3');
     title.className = `${MODULE_PREFIX}__report-name`;
     title.textContent = report.name;
-    const status = document.createElement('span');
-    status.className = `${MODULE_PREFIX}__status`;
-    status.textContent = report.status || 'active';
-    titleLine.append(title, status);
+    titleLine.append(title);
+    if (report.status) {
+      const status = document.createElement('span');
+      status.className = `${MODULE_PREFIX}__status`;
+      status.textContent = report.status;
+      titleLine.append(status);
+    }
     copy.append(titleLine);
 
     if (report.description) {
@@ -137,7 +140,13 @@
 
     const meta = document.createElement('div');
     meta.className = `${MODULE_PREFIX}__meta`;
-    if (report.owner) meta.append(createMeta('Owner', report.owner));
+    if (report.createdBy) {
+      const creator = document.createElement('span');
+      creator.textContent = report.createdBy;
+      meta.append(creator);
+    } else if (report.owner) {
+      meta.append(createMeta('Owner', report.owner));
+    }
     const access = report.authorization?.allowedRoles?.join(', ') || 'Policy controlled';
     meta.append(createMeta('Access', access));
     const candidate = report.rawExcel?.fileNameCandidate;

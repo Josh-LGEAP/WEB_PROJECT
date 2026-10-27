@@ -24,16 +24,26 @@ test('every report has three link fields and an individual policy', () => {
 test('KAM BSR report preserves confirmed and unconfirmed metadata', () => {
   const report = registry.reports.find(item => item.id === 'kam-bsr-traffic-light');
   assert.ok(report);
-  assert.equal(report.links.reportHtml, null);
+  assert.equal(report.name, 'BSR Traffic Light');
+  assert.equal(report.createdBy, 'Created by JohnPaul OConnor');
+  assert.equal(Object.hasOwn(report, 'status'), false);
+  assert.equal(report.links.reportHtml, 'https://lgeapbop.blob.core.windows.net/bi-portal/kam/bsr-traffic/BSR Traffic Light Report.html');
   assert.equal(report.links.rawExcel, null);
-  assert.equal(report.links.tutorialHtml, '/api/report-resource?reportId=kam-bsr-traffic-light&resource=tutorialHtml');
+  assert.equal(report.links.tutorialHtml, 'https://lgeapbop.blob.core.windows.net/bi-portal/kam/bsr-traffic/BSR_TrafficLight_Report_Video_Tutorial.html');
   assert.equal(report.rawExcel.fileNameCandidate, 'LG AV NOVEMBER 2026 20-10-26.xlsx');
 });
 
-test('Report HTML is disabled for the exact registry reason: its URL is null', () => {
+test('current public Tutorial bypasses the Function proxy while private migration config remains available', () => {
   const report = registry.reports.find(item => item.id === 'kam-bsr-traffic-light');
-  assert.equal(report.links.reportHtml, null);
-  assert.equal(Boolean(report.links.reportHtml), false);
+  assert.equal(report.links.tutorialHtml.startsWith('https://lgeapbop.blob.core.windows.net/'), true);
+  assert.equal(report.links.tutorialHtml.includes('/api/report-resource'), false);
+  assert.equal(report.authorization.enforcement, 'ui-only-for-public-links;api-required-for-private-resources');
+});
+
+test('Report HTML is enabled by the exact user-supplied public Blob URL', () => {
+  const report = registry.reports.find(item => item.id === 'kam-bsr-traffic-light');
+  assert.equal(report.links.reportHtml, 'https://lgeapbop.blob.core.windows.net/bi-portal/kam/bsr-traffic/BSR Traffic Light Report.html');
+  assert.equal(Boolean(report.links.reportHtml), true);
 });
 
 test('Report Hub defines separate HTML-preview and download action behaviours', () => {

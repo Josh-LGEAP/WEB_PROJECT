@@ -32,14 +32,13 @@
       "id": "kam-bsr-traffic-light",
       "tabId": "kam",
       "order": 10,
-      "name": "KAM BSR Traffic Light",
+      "name": "BSR Traffic Light",
       "description": "Traffic-light report package for KAM BSR review.",
-      "owner": "Business Operations Planning",
-      "status": "planned",
+      "createdBy": "Created by JohnPaul OConnor",
       "visible": true,
       "links": {
-        "reportHtml": null,
-        "tutorialHtml": "/api/report-resource?reportId=kam-bsr-traffic-light&resource=tutorialHtml",
+        "reportHtml": "https://lgeapbop.blob.core.windows.net/bi-portal/kam/bsr-traffic/BSR Traffic Light Report.html",
+        "tutorialHtml": "https://lgeapbop.blob.core.windows.net/bi-portal/kam/bsr-traffic/BSR_TrafficLight_Report_Video_Tutorial.html",
         "rawExcel": null
       },
       "rawExcel": {
@@ -51,7 +50,7 @@
         "allowedRoles": ["authenticated"],
         "allowedUsers": [],
         "entraGroupObjectIds": [],
-        "enforcement": "ui-preview-and-api-required"
+        "enforcement": "ui-only-for-public-links;api-required-for-private-resources"
       }
     }
   ]

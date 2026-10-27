@@ -2,7 +2,7 @@ const test = require('node:test');
 const assert = require('node:assert/strict');
 const { getReportResource } = require('../src/report-resources');
 
-test('tutorial resource maps to the private Blob and report policy', () => {
+test('future private tutorial resource maps to the Blob and report policy', () => {
   assert.deepEqual(getReportResource('kam-bsr-traffic-light', 'tutorialHtml'), {
     reportId: 'kam-bsr-traffic-light',
     resourceName: 'tutorialHtml',
@@ -16,7 +16,7 @@ test('tutorial resource maps to the private Blob and report policy', () => {
   });
 });
 
-test('Report HTML remains unavailable because no server resource is registered', () => {
+test('future private Report HTML resource remains unregistered while public URL is active', () => {
   assert.equal(getReportResource('kam-bsr-traffic-light', 'reportHtml'), null);
 });
 
