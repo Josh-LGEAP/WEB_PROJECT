@@ -1,6 +1,17 @@
+# Dependencies and local build output
 node_modules/
-local.settings.json
-bin/
-obj/
+api/node_modules/
+
+# Local secrets and developer settings
+api/local.settings.json
 .env
+.env.*
+!.env.example
+
+# Repository metadata must never be included in deployment packages
+.git/
+
+# Logs and OS files
 *.log
+.DS_Store
+Thumbs.db

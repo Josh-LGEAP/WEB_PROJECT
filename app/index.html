@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Business Intelligence Portal</title>
   <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="modules/report-hub/bop-report-hub.css" />
 </head>
 <body>
   <header class="masthead">
@@ -24,6 +25,8 @@
 
   <nav class="topnav">
     <button id="nav-dashboard">Dashboard</button>
+    <button id="bop-report-hub-nav-kam" class="bop-report-hub-nav-button" type="button">KAM</button>
+    <button id="bop-report-hub-nav-gtm" class="bop-report-hub-nav-button" type="button">GTM</button>
     <button id="nav-ai">AI Insights</button>
     <button id="nav-analytics">Analytics Hub</button>
   </nav>
@@ -48,13 +51,17 @@
     </div>
     <div id="analytics-page" style="display:none">
     </div>
+
+    <section id="bop-report-hub-kam-page" class="bop-report-hub" data-bop-report-hub-tab="kam" hidden></section>
+    <section id="bop-report-hub-gtm-page" class="bop-report-hub" data-bop-report-hub-tab="gtm" hidden></section>
   </main>
 
   <footer>
     <p>Built by Josh Cho | Business Operations Planning</p>
   </footer>
-  <script src="https://cdn.npm/chart.js@4.4.7/dist/chart.umd.min.jsscript>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
   <script src="analytics.js"></script>
   <script src="app.js"></script>
+  <script src="modules/report-hub/bop-report-hub.js"></script>
 </body>
 </html>

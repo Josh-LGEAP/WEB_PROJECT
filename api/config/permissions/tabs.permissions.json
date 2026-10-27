@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "policies": {
+    "tab.dashboard.read": { "allowedRoles": ["authenticated"], "allowedUsers": [], "entraGroupObjectIds": [] },
+    "tab.kam.read": { "allowedRoles": ["authenticated"], "allowedUsers": [], "entraGroupObjectIds": [] },
+    "tab.gtm.read": { "allowedRoles": ["authenticated"], "allowedUsers": [], "entraGroupObjectIds": [] },
+    "tab.ai.read": { "allowedRoles": ["authenticated"], "allowedUsers": [], "entraGroupObjectIds": [] },
+    "tab.analytics.read": { "allowedRoles": ["authenticated"], "allowedUsers": [], "entraGroupObjectIds": [] }
+  }
+}

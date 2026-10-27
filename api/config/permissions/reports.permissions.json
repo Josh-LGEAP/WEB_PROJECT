@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "policies": {
+    "report.kam-bsr-traffic-light.read": {
+      "allowedRoles": ["authenticated"],
+      "allowedUsers": [],
+      "entraGroupObjectIds": []
+    }
+  }
+}

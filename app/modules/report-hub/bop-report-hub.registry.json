@@ -1,0 +1,58 @@
+{
+  "version": 1,
+  "moduleId": "bop-report-hub",
+  "tabs": [
+    {
+      "id": "kam",
+      "label": "KAM",
+      "order": 10,
+      "visible": true,
+      "authorization": {
+        "policyId": "tab.kam.read",
+        "allowedRoles": ["authenticated"],
+        "allowedUsers": [],
+        "entraGroupObjectIds": []
+      }
+    },
+    {
+      "id": "gtm",
+      "label": "GTM",
+      "order": 20,
+      "visible": true,
+      "authorization": {
+        "policyId": "tab.gtm.read",
+        "allowedRoles": ["authenticated"],
+        "allowedUsers": [],
+        "entraGroupObjectIds": []
+      }
+    }
+  ],
+  "reports": [
+    {
+      "id": "kam-bsr-traffic-light",
+      "tabId": "kam",
+      "order": 10,
+      "name": "KAM BSR Traffic Light",
+      "description": "Traffic-light report package for KAM BSR review.",
+      "owner": "Business Operations Planning",
+      "status": "planned",
+      "visible": true,
+      "links": {
+        "reportHtml": null,
+        "tutorialHtml": "https://lgeapbop.blob.core.windows.net/bi-portal/kam/bsr-traffic/BSR_TrafficLight_Report_Video_Tutorial.html",
+        "rawExcel": null
+      },
+      "rawExcel": {
+        "fileNameCandidate": "LG AV NOVEMBER 2026 20-10-26.xlsx",
+        "confirmed": false
+      },
+      "authorization": {
+        "policyId": "report.kam-bsr-traffic-light.read",
+        "allowedRoles": ["authenticated"],
+        "allowedUsers": [],
+        "entraGroupObjectIds": [],
+        "enforcement": "ui-preview-and-api-required"
+      }
+    }
+  ]
+}
