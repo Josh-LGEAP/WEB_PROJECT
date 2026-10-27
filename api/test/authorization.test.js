@@ -25,3 +25,15 @@ test('unknown policies fail closed', () => {
     reason: 'policy-not-found'
   });
 });
+
+test('Entra group object ID is accepted only when present in trusted principal claims', () => {
+  const principal = {
+    userRoles: ['authenticated'],
+    claims: [{ typ: 'groups', val: '11111111-2222-3333-4444-555555555555' }]
+  };
+  assert.equal(canAccess(principal, {
+    allowedRoles: [],
+    allowedUsers: [],
+    entraGroupObjectIds: ['11111111-2222-3333-4444-555555555555']
+  }), true);
+});

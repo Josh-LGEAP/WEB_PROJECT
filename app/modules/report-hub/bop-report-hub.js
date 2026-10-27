@@ -11,11 +11,14 @@
     return document.getElementById(id);
   }
 
-  function safeHttpsUrl(value) {
+  function safeActionUrl(value) {
     if (!value) return null;
     try {
       const parsed = new URL(value, window.location.origin);
-      return parsed.protocol === 'https:' ? parsed.href : null;
+      const securedResourceEndpoint =
+        parsed.origin === window.location.origin &&
+        parsed.pathname === '/api/report-resource';
+      return parsed.protocol === 'https:' || securedResourceEndpoint ? parsed.href : null;
     } catch {
       return null;
     }
@@ -82,14 +85,19 @@
     return item;
   }
 
-  function createAction(label, url, unavailableText) {
-    const safeUrl = safeHttpsUrl(url);
+  function createAction(label, url, unavailableText, behavior) {
+    const safeUrl = safeActionUrl(url);
     if (safeUrl) {
       const link = document.createElement('a');
       link.className = `${MODULE_PREFIX}__action`;
       link.href = safeUrl;
-      link.target = '_blank';
-      link.rel = 'noopener noreferrer';
+      if (behavior === 'html-preview') {
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+      } else if (behavior === 'download') {
+        link.setAttribute('download', '');
+        link.rel = 'noopener';
+      }
       link.textContent = label;
       return link;
     }
@@ -140,9 +148,9 @@
     actions.className = `${MODULE_PREFIX}__actions`;
     actions.setAttribute('aria-label', `${report.name} resources`);
     actions.append(
-      createAction('Report HTML', report.links?.reportHtml, 'Report URL is not confirmed yet'),
-      createAction('Tutorial HTML', report.links?.tutorialHtml, 'Tutorial URL is not available'),
-      createAction('Raw Excel', report.links?.rawExcel, candidate ? `URL is not confirmed. Candidate: ${candidate}` : 'Raw Excel URL is not confirmed yet')
+      createAction('Report HTML', report.links?.reportHtml, 'Report URL is not confirmed yet', 'html-preview'),
+      createAction('Tutorial HTML', report.links?.tutorialHtml, 'Tutorial URL is not available', 'html-preview'),
+      createAction('Raw Excel', report.links?.rawExcel, candidate ? `URL is not confirmed. Candidate: ${candidate}` : 'Raw Excel URL is not confirmed yet', 'download')
     );
     row.append(copy, actions);
     return row;

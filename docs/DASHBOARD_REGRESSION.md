@@ -2,7 +2,7 @@
 
 ## 보존 전략
 
-KAM/GTM을 기존 `app/app.js` 또는 `app/styles.css`에 합치지 않았다. 기존 Dashboard의 코드, 스타일, 레지스트리, 로고 및 타일 이미지는 원본 그대로 유지하고, `app/modules/report-hub/` 아래의 독립 IIFE/CSS/JSON 모듈로 추가했다.
+KAM/GTM 및 Coming Soon을 기존 `app/app.js` 또는 `app/styles.css`에 합치지 않았다. 기존 Dashboard의 코드, 스타일, 레지스트리, 로고 및 타일 이미지는 원본 그대로 유지하고, `app/modules/report-hub/` 및 `app/modules/coming-soon/` 아래의 독립 IIFE/CSS/JSON 모듈로 추가했다.
 
 ## 정적 회귀 기준
 
@@ -20,6 +20,7 @@ KAM/GTM을 기존 `app/app.js` 또는 `app/styles.css`에 합치지 않았다. �
 - 기존 `index.html`의 Dashboard 상태바·검색·콘텐츠 DOM 블록 동일성
 - 기존 `nav-dashboard` 컨트롤 유지
 - Report Hub DOM/CSS/JS 네임스페이스 충돌 없음
+- Coming Soon DOM/CSS/JS 네임스페이스 충돌 없음
 - KAM/GTM 루트가 초기에는 `hidden`이고 Dashboard 소스 뒤에 추가 모듈이 로드됨
 
 ## 브라우저 회귀 시나리오
@@ -30,10 +31,11 @@ KAM/GTM을 기존 `app/app.js` 또는 `app/styles.css`에 합치지 않았다. �
 2. 타일 수 17개
 3. 타일 이름과 Power BI `href` 17개 완전 일치
 4. 검색어 `Inventory` 입력 시 표시 타일 집합 일치
-5. AI Insights 진입 후 Dashboard 복귀 시 콘텐츠/상태바/검색창 표시 상태 일치
+5. AI Insights와 Analytics Hub에는 Coming Soon만 표시되고 legacy API 호출이 0건인지 확인
 6. Dashboard 타일의 핵심 computed style(배경색, 테두리, radius, display, grid columns) 일치
-7. 최종본에서 KAM/GTM 이동 후 Dashboard 복귀 시 기존 Dashboard 타일과 링크 재확인
-8. 브라우저 page error 없음
+7. Coming Soon 화면에서 Dashboard 복귀 시 기존 Dashboard 상태 일치
+8. 최종본에서 KAM/GTM 이동 후 Dashboard 복귀 시 기존 Dashboard 타일과 링크 재확인
+9. 브라우저 page error 없음
 
 ## 자동화
 
@@ -44,6 +46,6 @@ KAM/GTM을 기존 `app/app.js` 또는 `app/styles.css`에 합치지 않았다. �
 - 기존 Dashboard 이벤트 구현과 전역 함수는 `app/app.js` 해시 동일성으로 원본과 완전 동일함을 확인한다.
 - 기존 Dashboard CSS는 `app/styles.css` 해시 동일성으로 완전 동일함을 확인한다.
 - URL/타일/Power BI 메타데이터는 `app/registry.json`과 원본 projection의 완전 일치로 확인한다.
-- 신규 CSS는 `bop-report-hub*`만 사용하며 기존 `.tile`, `.grid`, `.topnav`, `.toolbar`, `.statusbar`, `#content`, `#search`를 선택하지 않는다.
+- 신규 CSS는 `bop-report-hub*` 또는 `bop-coming-soon*` namespace만 사용하며 기존 `.tile`, `.grid`, `.topnav`, `.toolbar`, `.statusbar`, `#content`, `#search`를 재정의하지 않는다.
 - 신규 JavaScript는 IIFE 내부에 있고 일반 전역 함수/변수를 만들지 않는다.
-- 기존 Dashboard 버튼을 누르면 기존 이벤트 핸들러가 그대로 실행되며, 모듈은 자기 뷰만 숨긴다.
+- Coming Soon capture listener는 `nav-ai`와 `nav-analytics`만 차단한다. `nav-dashboard` 이벤트는 차단하지 않으므로 기존 Dashboard 핸들러가 그대로 실행된다.

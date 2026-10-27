@@ -39,7 +39,7 @@
       "visible": true,
       "links": {
         "reportHtml": null,
-        "tutorialHtml": "https://lgeapbop.blob.core.windows.net/bi-portal/kam/bsr-traffic/BSR_TrafficLight_Report_Video_Tutorial.html",
+        "tutorialHtml": "/api/report-resource?reportId=kam-bsr-traffic-light&resource=tutorialHtml",
         "rawExcel": null
       },
       "rawExcel": {

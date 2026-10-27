@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "reports": {
+    "kam-bsr-traffic-light": {
+      "policyId": "report.kam-bsr-traffic-light.read",
+      "resources": {
+        "tutorialHtml": {
+          "accountName": "lgeapbop",
+          "containerName": "bi-portal",
+          "blobName": "kam/bsr-traffic/BSR_TrafficLight_Report_Video_Tutorial.html",
+          "contentType": "text/html; charset=utf-8",
+          "contentDisposition": "inline",
+          "sasMinutes": 5
+        }
+      }
+    }
+  }
+}

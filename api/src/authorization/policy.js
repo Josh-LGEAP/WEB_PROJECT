@@ -9,6 +9,21 @@ function normalise(values) {
   return new Set((values || []).map(value => String(value).trim().toLowerCase()).filter(Boolean));
 }
 
+function principalGroups(principal) {
+  const groups = new Set();
+  for (const value of principal?.groupIds || []) groups.add(String(value).trim().toLowerCase());
+  for (const claim of principal?.claims || []) {
+    const type = String(claim.typ || claim.type || '').toLowerCase();
+    if (type === 'groups' || type.endsWith('/groups') || type.endsWith('/groupsid')) {
+      const value = claim.val ?? claim.value;
+      if (Array.isArray(value)) value.forEach(item => groups.add(String(item).trim().toLowerCase()));
+      else if (value) groups.add(String(value).trim().toLowerCase());
+    }
+  }
+  groups.delete('');
+  return groups;
+}
+
 function canAccess(principal, policy = {}) {
   if (!principal) return false;
   const roles = normalise(principal.userRoles);
@@ -19,8 +34,12 @@ function canAccess(principal, policy = {}) {
   const allowedUsers = normalise(policy.allowedUsers);
   if (identity && allowedUsers.has(identity)) return true;
 
+  const allowedGroups = normalise(policy.entraGroupObjectIds);
+  const groups = principalGroups(principal);
+  if ([...allowedGroups].some(groupId => groups.has(groupId))) return true;
+
   const allowedRoles = normalise(policy.allowedRoles);
-  if (!allowedRoles.size && !allowedUsers.size) return false;
+  if (!allowedRoles.size && !allowedUsers.size && !allowedGroups.size) return false;
   return [...allowedRoles].some(role => roles.has(role));
 }
 
@@ -41,4 +60,4 @@ function assertAccess(principal, scope, policyId) {
     : { allowed: false, reason: 'forbidden' };
 }
 
-module.exports = { canAccess, getPolicy, assertAccess };
+module.exports = { canAccess, getPolicy, assertAccess, principalGroups };

@@ -20,4 +20,4 @@ These original files are byte-identical to `portal_v1_source.zip`:
 - `app/modules/report-hub/bop-report-hub.css`
 - `app/modules/report-hub/bop-report-hub.registry.json`
 
-The module uses only `bop-report-hub-*` IDs/classes/data attributes and a private JavaScript IIFE. See `docs/DASHBOARD_LINK_SOURCES.md` for the original Dashboard registry flow, plus `docs/DASHBOARD_REGRESSION.md`, `docs/AUTHORIZATION.md`, and `docs/APPLY.md`.
+The module uses only `bop-report-hub-*` IDs/classes/data attributes and a private JavaScript IIFE. AI Insights and Analytics Hub are intercepted by the separate `bop-coming-soon` module without invoking their legacy handlers. Tutorial access uses the authenticated `/api/report-resource` endpoint and a short-lived user-delegation SAS. See `docs/DASHBOARD_LINK_SOURCES.md`, `docs/DASHBOARD_REGRESSION.md`, `docs/REPORT_RESOURCE_ACCESS.md`, `docs/AUTHORIZATION.md`, and `docs/APPLY.md`.

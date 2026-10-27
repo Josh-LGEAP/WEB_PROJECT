@@ -61,3 +61,16 @@ test('Report Hub selectors and identifiers do not collide with Dashboard namespa
   assert.equal(/window\.[A-Za-z_$][\w$]*\s*=/.test(javascript), false, 'module creates a global assignment');
   assert.equal(javascript.trimStart().startsWith('(() => {'), true, 'module is not isolated in an IIFE');
 });
+
+test('Coming Soon module is isolated and intercepts only AI and Analytics', () => {
+  const css = fs.readFileSync(path.join(root, 'app/modules/coming-soon/bop-coming-soon.css'), 'utf8');
+  const javascript = fs.readFileSync(path.join(root, 'app/modules/coming-soon/bop-coming-soon.js'), 'utf8');
+  assert.equal(javascript.trimStart().startsWith('(() => {'), true);
+  assert.equal(/window\.[A-Za-z_$][\w$]*\s*=/.test(javascript), false);
+  assert.equal(javascript.includes("'nav-ai'"), true);
+  assert.equal(javascript.includes("'nav-analytics'"), true);
+  assert.equal(javascript.includes("PAGE_BY_NAV[button.id]"), true);
+  assert.equal(css.includes('.tile{'), false);
+  assert.equal(css.includes('.grid{'), false);
+  assert.equal(css.includes('#content'), false);
+});
