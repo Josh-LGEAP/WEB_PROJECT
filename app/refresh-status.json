@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-17T22:31:34.268Z",
+  "generatedAt": "2026-11-17T22:40:36.714Z",
   "items": {
     "1b186906-7c7a-40bf-a328-128adaa94868": {
       "status": "Completed",
@@ -44,11 +44,11 @@
       "lastSuccessTime": "2026-10-02T02:42:25.807Z"
     },
     "70cb106f-4317-4cb4-ac12-9443ac4051ba": {
-      "status": "Unknown",
+      "status": "Completed",
       "refreshType": "Scheduled",
       "startTime": "2026-11-17T22:30:00.867Z",
-      "endTime": null,
-      "lastSuccessTime": "2026-11-17T22:00:52.71Z"
+      "endTime": "2026-11-17T22:31:56.473Z",
+      "lastSuccessTime": "2026-11-17T22:31:56.473Z"
     },
     "7175ccfa-78a1-42cc-9830-c8c51f863efb": {
       "status": "Completed",
@@ -58,11 +58,11 @@
       "lastSuccessTime": "2026-11-17T22:12:01.987Z"
     },
     "77dc19e5-28fb-4311-9f7e-e895e5b5ac2a": {
-      "status": "Failed",
-      "refreshType": "Scheduled",
-      "startTime": "2026-11-17T21:30:00.8Z",
-      "endTime": "2026-11-17T21:30:28.757Z",
-      "lastSuccessTime": "2026-11-16T21:39:53.787Z"
+      "status": "Completed",
+      "refreshType": "OnDemand",
+      "startTime": "2026-11-17T22:32:15.163Z",
+      "endTime": "2026-11-17T22:36:28.913Z",
+      "lastSuccessTime": "2026-11-17T22:36:28.913Z"
     },
     "83c5891f-28f2-40da-86ac-4959f5471174": {
       "status": "Completed",
