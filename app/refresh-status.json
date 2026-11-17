@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-17T05:35:32.332Z",
+  "generatedAt": "2026-11-17T22:31:34.268Z",
   "items": {
     "1b186906-7c7a-40bf-a328-128adaa94868": {
       "status": "Completed",
@@ -30,11 +30,11 @@
       "lastSuccessTime": "2026-11-11T03:05:04.753Z"
     },
     "4aab36d0-0da8-4d50-9611-21ae5735d411": {
-      "status": "Unknown",
+      "status": "Completed",
       "refreshType": "Scheduled",
       "startTime": "2026-11-17T05:30:02.397Z",
-      "endTime": null,
-      "lastSuccessTime": "2026-11-10T05:36:13.227Z"
+      "endTime": "2026-11-17T05:43:06.803Z",
+      "lastSuccessTime": "2026-11-17T05:43:06.803Z"
     },
     "65c965c3-1fa2-4a61-b659-96bc2855f8ff": {
       "status": "Failed",
@@ -44,24 +44,24 @@
       "lastSuccessTime": "2026-10-02T02:42:25.807Z"
     },
     "70cb106f-4317-4cb4-ac12-9443ac4051ba": {
-      "status": "Completed",
+      "status": "Unknown",
       "refreshType": "Scheduled",
-      "startTime": "2026-11-16T22:30:00.833Z",
-      "endTime": "2026-11-16T22:32:28.017Z",
-      "lastSuccessTime": "2026-11-16T22:32:28.017Z"
+      "startTime": "2026-11-17T22:30:00.867Z",
+      "endTime": null,
+      "lastSuccessTime": "2026-11-17T22:00:52.71Z"
     },
     "7175ccfa-78a1-42cc-9830-c8c51f863efb": {
       "status": "Completed",
       "refreshType": "Scheduled",
-      "startTime": "2026-11-16T23:00:08.763Z",
-      "endTime": "2026-11-16T23:20:34.433Z",
-      "lastSuccessTime": "2026-11-16T23:20:34.433Z"
+      "startTime": "2026-11-17T22:00:03.013Z",
+      "endTime": "2026-11-17T22:12:01.987Z",
+      "lastSuccessTime": "2026-11-17T22:12:01.987Z"
     },
     "77dc19e5-28fb-4311-9f7e-e895e5b5ac2a": {
       "status": "Failed",
-      "refreshType": "OnDemand",
-      "startTime": "2026-11-17T00:35:29.047Z",
-      "endTime": "2026-11-17T00:35:43.733Z",
+      "refreshType": "Scheduled",
+      "startTime": "2026-11-17T21:30:00.8Z",
+      "endTime": "2026-11-17T21:30:28.757Z",
       "lastSuccessTime": "2026-11-16T21:39:53.787Z"
     },
     "83c5891f-28f2-40da-86ac-4959f5471174": {
@@ -74,9 +74,9 @@
     "b50b0164-913c-4514-b63f-619d9122dd44": {
       "status": "Completed",
       "refreshType": "Scheduled",
-      "startTime": "2026-11-16T21:00:04.697Z",
-      "endTime": "2026-11-16T21:21:30.483Z",
-      "lastSuccessTime": "2026-11-16T21:21:30.483Z"
+      "startTime": "2026-11-17T21:00:04.98Z",
+      "endTime": "2026-11-17T21:16:20.947Z",
+      "lastSuccessTime": "2026-11-17T21:16:20.947Z"
     },
     "c2327efa-0513-41e9-8aa0-bc23ca3fcbe8": {
       "status": "Completed",
@@ -88,9 +88,9 @@
     "ed264e94-8987-4097-aba1-481d19336f10": {
       "status": "Completed",
       "refreshType": "Scheduled",
-      "startTime": "2026-11-17T05:00:02.18Z",
-      "endTime": "2026-11-17T05:17:27.063Z",
-      "lastSuccessTime": "2026-11-17T05:17:27.063Z"
+      "startTime": "2026-11-17T17:30:00.897Z",
+      "endTime": "2026-11-17T17:37:03.367Z",
+      "lastSuccessTime": "2026-11-17T17:37:03.367Z"
     },
     "fa0809d4-2c0d-4368-9f74-5879eb022b9e": {
       "status": "Completed",
@@ -102,9 +102,9 @@
     "ffdb364f-9e18-425c-8cd8-afe3dfab77c1": {
       "status": "Completed",
       "refreshType": "Scheduled",
-      "startTime": "2026-11-16T21:30:02.443Z",
-      "endTime": "2026-11-16T21:44:11.057Z",
-      "lastSuccessTime": "2026-11-16T21:44:11.057Z"
+      "startTime": "2026-11-17T21:30:02.473Z",
+      "endTime": "2026-11-17T21:44:36.533Z",
+      "lastSuccessTime": "2026-11-17T21:44:36.533Z"
     }
   }
 }
