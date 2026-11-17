@@ -227,7 +227,7 @@ const EMBEDDED = [
     "name": "Data Validation",
     "category": "Operations",
     "description": "",
-    "url": "https://app.powerbi.com/links/DWZOqWZ3V2?ctid=5069cde4-642a-45c0-8094-d0c2dec10be3&pbi_source=linkShare",
+    "url": "https://app.powerbi.com/links/PuzkRhpFNC?ctid=5069cde4-642a-45c0-8094-d0c2dec10be3&pbi_source=linkShare",
     "image": "",
     "owner": "",
     "workspaceId": "8ad98ef6-7036-4c54-a2d5-6710cf6c47c8",
