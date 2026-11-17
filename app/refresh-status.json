@@ -1,0 +1,110 @@
+{
+  "generatedAt": "2026-11-17T05:35:32.332Z",
+  "items": {
+    "1b186906-7c7a-40bf-a328-128adaa94868": {
+      "status": "Completed",
+      "refreshType": "Scheduled",
+      "startTime": "2026-11-16T20:30:01.803Z",
+      "endTime": "2026-11-16T21:24:25.203Z",
+      "lastSuccessTime": "2026-11-16T21:24:25.203Z"
+    },
+    "2e668c8e-43bd-4488-aeb8-3761c98fecc6": {
+      "status": "Failed",
+      "refreshType": "OnDemand",
+      "startTime": "2025-10-21T06:37:20.05Z",
+      "endTime": "2025-10-21T06:37:59.513Z",
+      "lastSuccessTime": null
+    },
+    "2eebc3ae-598e-4b05-b3d2-7cc98e25e9b7": {
+      "status": "Failed",
+      "refreshType": "OnDemand",
+      "startTime": "2026-11-03T22:56:12.933Z",
+      "endTime": "2026-11-03T22:56:16.323Z",
+      "lastSuccessTime": "2026-10-02T02:23:53.613Z"
+    },
+    "45d16feb-d2d8-4c13-ae76-96a0c1b4e965": {
+      "status": "Completed",
+      "refreshType": "Scheduled",
+      "startTime": "2026-11-11T03:00:03.227Z",
+      "endTime": "2026-11-11T03:05:04.753Z",
+      "lastSuccessTime": "2026-11-11T03:05:04.753Z"
+    },
+    "4aab36d0-0da8-4d50-9611-21ae5735d411": {
+      "status": "Unknown",
+      "refreshType": "Scheduled",
+      "startTime": "2026-11-17T05:30:02.397Z",
+      "endTime": null,
+      "lastSuccessTime": "2026-11-10T05:36:13.227Z"
+    },
+    "65c965c3-1fa2-4a61-b659-96bc2855f8ff": {
+      "status": "Failed",
+      "refreshType": "OnDemand",
+      "startTime": "2026-11-03T02:44:46.963Z",
+      "endTime": "2026-11-03T03:28:31.073Z",
+      "lastSuccessTime": "2026-10-02T02:42:25.807Z"
+    },
+    "70cb106f-4317-4cb4-ac12-9443ac4051ba": {
+      "status": "Completed",
+      "refreshType": "Scheduled",
+      "startTime": "2026-11-16T22:30:00.833Z",
+      "endTime": "2026-11-16T22:32:28.017Z",
+      "lastSuccessTime": "2026-11-16T22:32:28.017Z"
+    },
+    "7175ccfa-78a1-42cc-9830-c8c51f863efb": {
+      "status": "Completed",
+      "refreshType": "Scheduled",
+      "startTime": "2026-11-16T23:00:08.763Z",
+      "endTime": "2026-11-16T23:20:34.433Z",
+      "lastSuccessTime": "2026-11-16T23:20:34.433Z"
+    },
+    "77dc19e5-28fb-4311-9f7e-e895e5b5ac2a": {
+      "status": "Failed",
+      "refreshType": "OnDemand",
+      "startTime": "2026-11-17T00:35:29.047Z",
+      "endTime": "2026-11-17T00:35:43.733Z",
+      "lastSuccessTime": "2026-11-16T21:39:53.787Z"
+    },
+    "83c5891f-28f2-40da-86ac-4959f5471174": {
+      "status": "Completed",
+      "refreshType": "Scheduled",
+      "startTime": "2026-11-12T02:00:02.877Z",
+      "endTime": "2026-11-12T02:07:47.91Z",
+      "lastSuccessTime": "2026-11-12T02:07:47.91Z"
+    },
+    "b50b0164-913c-4514-b63f-619d9122dd44": {
+      "status": "Completed",
+      "refreshType": "Scheduled",
+      "startTime": "2026-11-16T21:00:04.697Z",
+      "endTime": "2026-11-16T21:21:30.483Z",
+      "lastSuccessTime": "2026-11-16T21:21:30.483Z"
+    },
+    "c2327efa-0513-41e9-8aa0-bc23ca3fcbe8": {
+      "status": "Completed",
+      "refreshType": "Scheduled",
+      "startTime": "2026-11-17T05:00:02.647Z",
+      "endTime": "2026-11-17T05:17:38.17Z",
+      "lastSuccessTime": "2026-11-17T05:17:38.17Z"
+    },
+    "ed264e94-8987-4097-aba1-481d19336f10": {
+      "status": "Completed",
+      "refreshType": "Scheduled",
+      "startTime": "2026-11-17T05:00:02.18Z",
+      "endTime": "2026-11-17T05:17:27.063Z",
+      "lastSuccessTime": "2026-11-17T05:17:27.063Z"
+    },
+    "fa0809d4-2c0d-4368-9f74-5879eb022b9e": {
+      "status": "Completed",
+      "refreshType": "OnDemand",
+      "startTime": "2026-10-01T01:53:48.93Z",
+      "endTime": "2026-10-01T01:54:05.667Z",
+      "lastSuccessTime": "2026-10-01T01:54:05.667Z"
+    },
+    "ffdb364f-9e18-425c-8cd8-afe3dfab77c1": {
+      "status": "Completed",
+      "refreshType": "Scheduled",
+      "startTime": "2026-11-16T21:30:02.443Z",
+      "endTime": "2026-11-16T21:44:11.057Z",
+      "lastSuccessTime": "2026-11-16T21:44:11.057Z"
+    }
+  }
+}

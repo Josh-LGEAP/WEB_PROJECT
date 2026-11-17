@@ -2,11 +2,11 @@
   "source": "portal_v1_source.zip",
   "purpose": "Immutable Dashboard regression baseline. KAM/GTM additions must not change these values.",
   "coreFileSha256": {
-    "app/app.js": "16962e6ff2e1d0604814c892652f7d2247a655715ccce3e73747034525a80c38",
+    "app/app.js": "4be2b7fc046bae8dfec8b5919d9c102a538ae52ede91f6321020275dab30c434",
     "app/styles.css": "3f08bab74aca1db7c25a1ada347e8da3a9e0b5dd879a9b99116ec4e3f806f933",
-    "app/registry.json": "c55b5db46885b196a1688f315a2d9186944f65e380a6a42252d4f9e34acbc764",
+    "app/registry.json": "b4e8d12bad6fe5e8c676b58cd25efa281713a4bc7d81e8bf0b0950922c549606",
     "app/assets/logo.png": "e44134d99976107c3e86ab1e1fd44a904e92763e73045e3a94c7deb205fe1024",
-    "api/src/registry.js": "70f045e9a084d120124a966ceec40215b2feac1b30df9d197f481d67c7935348",
+    "api/src/registry.js": "4324fa7066f2e0d9df76e03756ddba8e09e3c28e2812d2e5ba356b4db3b96f70",
     "api/src/functions/registry.js": "9fb5576569729dfb64d5c5f08c8f008165c8d3b0034a27d173ecdd0498d39992",
     "api/src/auth.js": "f1482726b0a0ab3be107c46bbf70f4d1a608c92ff48a4f42184ef3e7902588ce",
     "api/src/functions/refreshes.js": "1a1fc64b5ce16fce84d4d0001cf39b05cf2350625f198393877cf51b1ed9252d",
@@ -79,7 +79,7 @@
       "url": "https://app.powerbi.com/links/9axsmjN4NE?ctid=5069cde4-642a-45c0-8094-d0c2dec10be3&pbi_source=linkShare",
       "image": "spec.png",
       "workspaceId": "8ad98ef6-7036-4c54-a2d5-6710cf6c47c8",
-      "datasetId": "",
+      "datasetId": "77dc19e5-28fb-4311-9f7e-e895e5b5ac2a",
       "visible": true,
       "archived": false
     },
@@ -225,8 +225,19 @@
       "datasetId": "2e668c8e-43bd-4488-aeb8-3761c98fecc6",
       "visible": true,
       "archived": false
+    },
+    {
+      "order": 40,
+      "name": "Data Validation",
+      "category": "Operations",
+      "url": "https://app.powerbi.com/links/DWZOqWZ3V2?ctid=5069cde4-642a-45c0-8094-d0c2dec10be3&pbi_source=linkShare",
+      "image": "",
+      "workspaceId": "8ad98ef6-7036-4c54-a2d5-6710cf6c47c8",
+      "datasetId": "70cb106f-4317-4cb4-ac12-9443ac4051ba",
+      "visible": true,
+      "archived": false
     }
   ],
-  "dashboardCount": 17,
-  "powerBiLinkCount": 17
+  "dashboardCount": 18,
+  "powerBiLinkCount": 18
 }

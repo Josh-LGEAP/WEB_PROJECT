@@ -27,8 +27,8 @@ jobs:
           skip_api_build: true
 
   deploy_api:
-    #if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-    if: false
+    # Runs only once the repo variable FUNCTION_APP_NAME is configured.
+    if: ${{ vars.FUNCTION_APP_NAME != '' }}
     runs-on: ubuntu-latest
     name: Deploy Functions backend
     environment: production

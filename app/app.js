@@ -49,7 +49,7 @@ const EMBEDDED = [
     "image": "spec.png",
     "owner": "",
     "workspaceId": "8ad98ef6-7036-4c54-a2d5-6710cf6c47c8",
-    "datasetId": "",
+    "datasetId": "77dc19e5-28fb-4311-9f7e-e895e5b5ac2a",
     "visible": true,
     "archived": false
   },
@@ -221,6 +221,19 @@ const EMBEDDED = [
     "datasetId": "2e668c8e-43bd-4488-aeb8-3761c98fecc6",
     "visible": true,
     "archived": false
+  },
+  {
+    "order": 40,
+    "name": "Data Validation",
+    "category": "Operations",
+    "description": "",
+    "url": "https://app.powerbi.com/links/DWZOqWZ3V2?ctid=5069cde4-642a-45c0-8094-d0c2dec10be3&pbi_source=linkShare",
+    "image": "",
+    "owner": "",
+    "workspaceId": "8ad98ef6-7036-4c54-a2d5-6710cf6c47c8",
+    "datasetId": "70cb106f-4317-4cb4-ac12-9443ac4051ba",
+    "visible": true,
+    "archived": false
   }
 ];
 
@@ -252,6 +265,26 @@ async function getJson(url) {
   return res.json();
 }
 
+const STALE_HOURS = 26;
+
+// Same rules as api/src/functions/refreshes.js, for the committed snapshot.
+function healthOf(entry) {
+  if (!entry) return 'unknown';
+  if (entry.status === 'Failed') return 'failed';
+  if (entry.status === 'Unknown') return 'running';
+  if (!entry.endTime) return 'unknown';
+  const ageH = (Date.now() - Date.parse(entry.endTime)) / 3600000;
+  if (ageH <= STALE_HOURS) return 'fresh';
+  if (ageH <= STALE_HOURS * 2) return 'aging';
+  return 'stale';
+}
+
+function snapshotItems(snap) {
+  const out = {};
+  for (const [id, e] of Object.entries(snap?.items || {})) out[id] = { ...e, health: healthOf(e) };
+  return out;
+}
+
 /**
  * The API is the source of truth. registry.json is a snapshot committed with the
  * site so the page still renders before the backend identity is in place.
@@ -269,7 +302,12 @@ async function loadRegistry() {
 
 function tile(d, refresh) {
   const health = refresh?.health || 'unknown';
-  const when = refresh?.endTime ? `${fmt.format(new Date(refresh.endTime))} - ${relative(refresh.endTime)}` : LABEL[health];
+  // Prefer the last successful refresh: that is when the data actually changed.
+  const shown = refresh?.lastSuccessTime || refresh?.endTime;
+  const prefix = health !== 'failed' ? '' : refresh?.lastSuccessTime ? 'Last success ' : 'Failed ';
+  const when = shown
+    ? `${prefix}${fmt.format(new Date(shown))} - ${relative(shown)}`
+    : refresh?.status === 'NoHistory' ? 'No refresh history' : LABEL[health];
   const thumb = d.image
     ? `<div class="thumb" style="background-image:url('assets/tiles/${encodeURIComponent(d.image)}')"></div>`
     : `<div class="thumb thumb-empty"><span>${esc(d.name.slice(0, 2).toUpperCase())}</span></div>`;
@@ -316,7 +354,9 @@ function render(dashboards, refreshes) {
   const note = document.getElementById('asof');
   note.textContent = window.__liveApi
     ? `Refresh status as at ${fmt.format(new Date())} Sydney time`
-    : 'Refresh status not connected yet - showing the dashboard list only';
+    : window.__snapshotAt
+      ? `Refresh times from snapshot taken ${fmt.format(new Date(window.__snapshotAt))} Sydney time`
+      : 'Refresh status not connected yet - showing the dashboard list only';
   document.getElementById('statusbar').hidden = false;
 }
 
@@ -352,13 +392,17 @@ async function main() {
   showUser();
   wireSearch();
   try {
-    const [{ data: reg, live }, ref] = await Promise.all([
+    const [{ data: reg, live }, ref, snap] = await Promise.all([
       loadRegistry(),
-      getJson('/api/refreshes').catch(() => null)
+      getJson('/api/refreshes').catch(() => null),
+      getJson('refresh-status.json').catch(() => null)
     ]);
     if (!reg) return;
-    window.__liveApi = live && !!ref;
-    render(reg.dashboards, ref?.items || {});
+    const apiItems = ref?.items || {};
+    // The API wins per dataset; the committed snapshot fills any gaps.
+    window.__liveApi = live && !!ref && Object.keys(apiItems).length > 0;
+    window.__snapshotAt = snap?.generatedAt || null;
+    render(reg.dashboards, { ...snapshotItems(snap), ...apiItems });
   } catch (e) {
     document.getElementById('content').innerHTML =
       `<p class="error">Could not load the dashboard list. ${esc(e.message)}</p>`;

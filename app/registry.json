@@ -1,7 +1,7 @@
 {
   "generatedAt": "2026-08-07T04:34:00Z",
   "source": "snapshot",
-  "count": 15,
+  "count": 18,
   "dashboards": [
   {
     "order": 1,
@@ -221,6 +221,19 @@
     "owner": "",
     "workspaceId": "8ad98ef6-7036-4c54-a2d5-6710cf6c47c8",
     "datasetId": "2e668c8e-43bd-4488-aeb8-3761c98fecc6",
+    "visible": true,
+    "archived": false
+  },
+  {
+    "order": 40,
+    "name": "Data Validation",
+    "category": "Operations",
+    "description": "",
+    "url": "https://app.powerbi.com/links/DWZOqWZ3V2?ctid=5069cde4-642a-45c0-8094-d0c2dec10be3&pbi_source=linkShare",
+    "image": "",
+    "owner": "",
+    "workspaceId": "8ad98ef6-7036-4c54-a2d5-6710cf6c47c8",
+    "datasetId": "70cb106f-4317-4cb4-ac12-9443ac4051ba",
     "visible": true,
     "archived": false
   }

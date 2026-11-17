@@ -83,6 +83,15 @@ async function fromExcel() {
   });
 }
 
+/**
+ * Reads the registry from config/dashboards.json, which is deployed with the
+ * Function package. Needs no Graph permission. Selected with REGISTRY_SOURCE=static.
+ */
+function fromStatic() {
+  const { dashboards } = require('../config/dashboards.json');
+  return dashboards.map(d => normalise({ ...d, show: d.visible }));
+}
+
 const truthy = v => v === true || String(v).trim().toLowerCase() === 'yes' || String(v).trim().toLowerCase() === 'true';
 
 function normalise(r) {
@@ -104,7 +113,8 @@ function normalise(r) {
 /** Registry rows, cached in-process. Invalid rows are dropped, not guessed at. */
 async function getRegistry({ force = false } = {}) {
   if (!force && cache.rows && Date.now() - cache.at < TTL_MS) return cache.rows;
-  const rows = (process.env.REGISTRY_SOURCE === 'excel' ? await fromExcel() : await fromSharePoint())
+  const source = process.env.REGISTRY_SOURCE;
+  const rows = (source === 'static' ? fromStatic() : source === 'excel' ? await fromExcel() : await fromSharePoint())
     .filter(r => r.visible && !r.archived && r.name && /^https:\/\/app\.powerbi\.com\//i.test(r.url))
     .sort((a, b) => a.order - b.order || a.name.localeCompare(b.name));
   cache = { at: Date.now(), rows };
