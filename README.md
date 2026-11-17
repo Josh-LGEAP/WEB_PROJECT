@@ -1,5 +1,7 @@
 # LGEAP Business Intelligence Portal — additive KAM/GTM module
 
+> **Start here:** [docs/PROJECT_GUIDE.md](docs/PROJECT_GUIDE.md) — architecture, data flows, deployment, Git usage, runbooks and troubleshooting.
+
 The existing Dashboard implementation is preserved as the default and initial view. KAM and GTM are added as an isolated Report Hub module.
 
 ## Dashboard preservation boundary
