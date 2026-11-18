@@ -19,6 +19,13 @@ app.timer('refreshPoller', {
       return { datasetId: r.datasetId, status: latest ? latest.status : 'NoHistory' };
     });
 
+    // mapLimit swallows per-dataset errors; surface them so a failed poll can be diagnosed.
+    results.forEach((r, i) => {
+      if (r && r.error) {
+        context.warn(`Poll failed for ${targets[i].name} (${targets[i].datasetId}): ${String(r.error).slice(0, 300)}`);
+      }
+    });
+
     const failed = results.filter(r => r && r.error).length;
     context.log(`Polled ${targets.length} semantic models, ${failed} errored`);
   }

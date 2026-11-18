@@ -285,6 +285,21 @@ function snapshotItems(snap) {
   return out;
 }
 
+// Where `node tools/update-refresh-status.js --upload` publishes. The storage
+// account's CORS rules must allow this site's origin (GET).
+const REFRESH_BLOB_URL = 'https://lgeapbop.blob.core.windows.net/bi-portal/refresh-status/refresh-status.json';
+
+/** The newer of the Blob copy (updated without a deploy) and the file shipped with the site. */
+async function loadSnapshot() {
+  const [remote, local] = await Promise.all([
+    fetch(`${REFRESH_BLOB_URL}?t=${Date.now()}`, { cache: 'no-store' })
+      .then(r => (r.ok ? r.json() : null)).catch(() => null),
+    getJson('refresh-status.json').catch(() => null)
+  ]);
+  const at = s => Date.parse(s?.generatedAt) || 0;
+  return at(remote) >= at(local) ? (remote || local) : local;
+}
+
 /**
  * The API is the source of truth. registry.json is a snapshot committed with the
  * site so the page still renders before the backend identity is in place.
@@ -395,7 +410,7 @@ async function main() {
     const [{ data: reg, live }, ref, snap] = await Promise.all([
       loadRegistry(),
       getJson('/api/refreshes').catch(() => null),
-      getJson('refresh-status.json').catch(() => null)
+      loadSnapshot()
     ]);
     if (!reg) return;
     const apiItems = ref?.items || {};

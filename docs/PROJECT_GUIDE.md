@@ -377,7 +377,17 @@ Short imperative first line (`Add Data Validation dashboard`), optional bullet l
 To find a report's dataset: Power BI → report → Settings, or list reports in the workspace through the REST API and read `datasetId`.
 
 ### 12.2 Update refresh times (snapshot)
-`az login`, `node tools/update-refresh-status.js`, commit `app/refresh-status.json`, push, Deploy Production. The footer shows when the snapshot was taken. Stop doing this once `/api/refreshes` has live data.
+Two ways, both run with your own `az login`. The footer shows when the snapshot was taken. Stop doing this once `/api/refreshes` has live data.
+
+**Blob (recommended, no deploy):** `node tools/update-refresh-status.js --upload` uploads the result to `https://lgeapbop.blob.core.windows.net/bi-portal/refresh-status/refresh-status.json`. TEST and production read it immediately. Requirements: your account has *Storage Blob Data Contributor* on `lgeapbop`, the container allows public read, and the storage account's Blob CORS rules allow `GET` from the SWA origins. The portal uses whichever of the Blob copy and `app/refresh-status.json` has the newer `generatedAt`, and silently falls back to the file if the Blob is unreachable.
+
+To run it hourly on a Windows PC that stays signed in:
+```powershell
+schtasks /Create /SC HOURLY /MO 1 /TN "BOP Refresh Status" /F /TR "cmd /c cd /d C:\portal_v1 && node tools\update-refresh-status.js --upload"
+```
+It stops working when the PC is off or the `az` sign-in expires.
+
+**Git (needs a deploy):** `.\tools\publish-refresh-status.ps1` (or run the script, then commit `app/refresh-status.json`), push, then run Deploy Production.
 
 ### 12.3 Add a KAM / GTM report
 Add an object to `reports` in `app/modules/report-hub/bop-report-hub.registry.json` (keep unknown links as `null`), add a matching policy in `api/config/permissions/reports.permissions.json`, upload the HTML/Excel to Blob with correct headers (`Content-Type: text/html`, `Content-Disposition: inline` for HTML), then deploy. Private Blobs must go through `/api/report-resource` and be allow-listed in `api/config/report-resources.json`.

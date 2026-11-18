@@ -2,7 +2,7 @@
   "source": "portal_v1_source.zip",
   "purpose": "Immutable Dashboard regression baseline. KAM/GTM additions must not change these values.",
   "coreFileSha256": {
-    "app/app.js": "1bca08912040c22e2c3e31c1a6f7a26796ddf503a761166b8f40f1e3988dc1ef",
+    "app/app.js": "b29a51c98813aa50a15a7aa8d5446c738c63a2b3683f71672a0eab1f69c688f2",
     "app/styles.css": "3f08bab74aca1db7c25a1ada347e8da3a9e0b5dd879a9b99116ec4e3f806f933",
     "app/registry.json": "daf79212cc9ed8e570402b7a8a02016f7ee3371066112e5f205815c03dd1bf22",
     "app/assets/logo.png": "e44134d99976107c3e86ab1e1fd44a904e92763e73045e3a94c7deb205fe1024",
@@ -10,7 +10,7 @@
     "api/src/functions/registry.js": "9fb5576569729dfb64d5c5f08c8f008165c8d3b0034a27d173ecdd0498d39992",
     "api/src/auth.js": "f1482726b0a0ab3be107c46bbf70f4d1a608c92ff48a4f42184ef3e7902588ce",
     "api/src/functions/refreshes.js": "1a1fc64b5ce16fce84d4d0001cf39b05cf2350625f198393877cf51b1ed9252d",
-    "api/src/functions/refreshPoller.js": "ca6d3ca9ab15f884c97071aa82102a97d57e68b9de101cb22d0bf9a750980545",
+    "api/src/functions/refreshPoller.js": "18f652330c5a7e0b6f933b87969e70839d58fe1c69d9ed316730b067c557feb0",
     "api/src/powerbi.js": "62b13f3fbded8218db6f0108fe8d0209ceafb4d1011c9537af8764d72ddf03c3",
     "api/src/state.js": "80c358329a6cf6b1893ee3966ad9c6cac49b91acbe743c47936a67a59042ff06",
     "api/local.settings.json.example": "63064b11fb4f9a9b7a97bec436297d9af6a531499c1447575edbbf7179dd878d",
